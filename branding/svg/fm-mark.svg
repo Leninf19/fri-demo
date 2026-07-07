@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!--
+    FM master brand mark — abstract reinterpretation of the FM monogram.
+    Uses the same diagonal vocabulary (70° from horizontal) as the original
+    FM lettermark, abstracted as a single bold slash through a solid field.
+    The FM lettermark's distinctive element is a white diagonal slash
+    cutting through the combined F+M form — here rendered as the core geometry.
+  -->
+  <rect width="1000" height="1000" rx="200" fill="#0A0806"/>
+  <!-- The FM diagonal: a single bold parallelogram slash across the center -->
+  <!-- Width=680, height=180, diagonal offset=66 — scaling of FM proportions -->
+  <path d="M226,380 L840,380 L774,560 L160,560 Z" fill="white"/>
+  <!-- Upper accent bar (the F-bar gesture) -->
+  <path d="M226,230 L640,230 L574,310 L160,310 Z" fill="white" opacity="0.6"/>
+</svg>

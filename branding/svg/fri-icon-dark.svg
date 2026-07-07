@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Dark variant: deep espresso container, amber mark -->
+  <rect width="1000" height="1000" rx="200" fill="#1A0E00"/>
+  <path d="M266,310 L626,310 L594,398 L234,398 Z" fill="#D4920A"/>
+  <path d="M266,456 L766,456 L734,544 L234,544 Z" fill="#D4920A"/>
+  <path d="M266,602 L686,602 L654,690 L234,690 Z" fill="#D4920A"/>
+</svg>

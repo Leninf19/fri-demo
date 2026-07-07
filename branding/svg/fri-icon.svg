@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!--
+    FRI — Future Review Intelligence
+    Brand System v2.0
+
+    Construction:
+    - 1000×1000 coordinate space, rx=160 container (16%)
+    - Royal Blue gradient at 225° (FM diagonal direction: upper-right → lower-left)
+    - FM diagonal bar at 70° from horizontal — the family signature
+    - "Ri" in ultra-heavy geometric sans, centered in active area (y=120–880)
+    - Bar path extends ±200px beyond container, clipped cleanly by clipPath
+  -->
+  <defs>
+    <linearGradient id="fri-grad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2E72F8"/>
+      <stop offset="100%" stop-color="#0E28A0"/>
+    </linearGradient>
+    <clipPath id="fri-clip">
+      <rect width="1000" height="1000" rx="160"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#fri-clip)">
+    <!-- Container -->
+    <rect width="1000" height="1000" fill="url(#fri-grad)"/>
+    <!-- FM diagonal bar: 70° angle, 80px height, 20% white opacity -->
+    <path d="M-200,120 L1200,120 L1171,200 L-229,200 Z" fill="rgba(255,255,255,0.20)"/>
+    <!-- Ri — Review Intelligence -->
+    <text x="500" y="700" text-anchor="middle"
+      font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+      font-weight="900" font-size="450" fill="white" letter-spacing="-15">Ri</text>
+  </g>
+</svg>

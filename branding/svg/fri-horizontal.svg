@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 480" width="2200" height="480">
+  <defs>
+    <linearGradient id="fri-h-bg" x1="0" y1="0" x2="480" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D4920A"/>
+      <stop offset="100%" stop-color="#7A4800"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: 480×480 container -->
+  <rect width="480" height="480" rx="96" fill="url(#fri-h-bg)"/>
+  <!-- Scale the bars: 1000→480 = 0.48 factor -->
+  <!-- Bar 1 original: M266,310 L626,310 L594,398 L234,398 — scaled: M127.7,148.8 L300.5,148.8 L285.1,191 L112.3,191 -->
+  <path d="M127.7,148.8 L300.5,148.8 L285.1,191 L112.3,191 Z" fill="white"/>
+  <!-- Bar 2 original: M266,456 L766,456 L734,544 L234,544 — scaled: M127.7,219 L367.7,219 L352.3,261.1 L112.3,261.1 -->
+  <path d="M127.7,219 L367.7,219 L352.3,261.1 L112.3,261.1 Z" fill="white"/>
+  <!-- Bar 3 original: M266,602 L686,602 L654,690 L234,690 — scaled: M127.7,289.0 L329.3,289.0 L313.9,331.2 L112.3,331.2 -->
+  <path d="M127.7,289 L329.3,289 L313.9,331.2 L112.3,331.2 Z" fill="white"/>
+
+  <!-- Wordmark: "Future Review Intelligence" -->
+  <!-- "FRI" abbreviation -->
+  <text x="560" y="168" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="96" font-weight="800" fill="#0A0806" letter-spacing="-3">FRI</text>
+  <!-- Full name -->
+  <text x="563" y="248" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="56" font-weight="400" fill="#3A3330" letter-spacing="0.5">Future Review Intelligence</text>
+  <!-- By line -->
+  <text x="564" y="314" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="600" fill="#9A6B00" letter-spacing="4" text-transform="uppercase">by Future Marketing Studio</text>
+</svg>

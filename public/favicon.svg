@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="g" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2E72F8"/>
+      <stop offset="100%" stop-color="#0E28A0"/>
+    </linearGradient>
+    <clipPath id="c"><rect width="1000" height="1000" rx="160"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="1000" height="1000" fill="url(#g)"/>
+    <path d="M-200,80 L1200,80 L1171,160 L-229,160 Z" fill="rgba(255,255,255,0.28)"/>
+    <path d="M-200,855 L1200,855 L1176,920 L-224,920 Z" fill="rgba(255,255,255,0.18)"/>
+    <text x="500" y="640" text-anchor="middle"
+      font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+      font-weight="900" font-size="300" fill="white" letter-spacing="-10">FRI</text>
+  </g>
+</svg>
