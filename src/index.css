@@ -242,3 +242,77 @@ textarea, input[type="text"], input[type="search"], select {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ─── Mobile-First: Chart Containers ──────────────────────── */
+.chart-sm { height: 180px; }
+.chart-md { height: 200px; }
+@media (max-width: 640px) {
+  .chart-sm { height: 138px; }
+  .chart-md { height: 155px; }
+}
+
+/* ─── Mobile-First: KPI Grid ──────────────────────────────── */
+@media (max-width: 640px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .kpi-health { grid-column: 1 / -1; }
+}
+
+/* ─── Mobile-First: Filter Bar ─────────────────────────────── */
+@media (max-width: 640px) {
+  .fri-filter-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .fri-filter-bar select,
+  .fri-filter-bar input[type="search"] {
+    width: 100% !important;
+    min-height: 44px;
+    font-size: 16px !important;
+    flex: none !important;
+    box-sizing: border-box !important;
+  }
+  .fri-filter-bar label {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .fri-filter-count { margin-left: 0 !important; }
+}
+
+/* ─── Mobile-First: Show / Hide ─────────────────────────────── */
+.desktop-only { display: block; }
+.mobile-ratings-viz,
+.mobile-ranking-cards,
+.mobile-competitor-cards { display: none; }
+
+@media (max-width: 640px) {
+  .desktop-only { display: none !important; }
+  .mobile-ratings-viz { display: block; }
+  .mobile-ranking-cards { display: flex; flex-direction: column; gap: 10px; }
+  .mobile-competitor-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+}
+
+/* ─── Mobile-First: AI Card ────────────────────────────────── */
+@media (max-width: 640px) {
+  .ai-card { padding: 20px !important; }
+  .ai-card p { font-size: 13px !important; line-height: 1.8 !important; }
+}
+
+/* ─── Mobile-First: Location Spotlight ─────────────────────── */
+@media (max-width: 420px) {
+  .spotlight-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ─── Mobile-First: AI Advisor Answer ──────────────────────── */
+@media (max-width: 520px) {
+  .fri-advisor-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px;
+  }
+  .fri-advisor-btns { justify-content: flex-start; }
+}

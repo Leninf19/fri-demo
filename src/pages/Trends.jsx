@@ -87,7 +87,7 @@ export default function Trends() {
               <div className="text-title">Portfolio Rating Trend</div>
               <div style={{ fontSize: 11, color: 'var(--color-text-3)' }}>All 8 locations combined · 12 months</div>
             </div>
-            <ResponsiveContainer width="100%" height={200}>
+            <div className="chart-md"><ResponsiveContainer width="100%" height="100%">
               <AreaChart data={portfolioTrend} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
                 <defs>
                   <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
@@ -101,7 +101,7 @@ export default function Trends() {
                 <Tooltip contentStyle={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 12 }} formatter={v => [`${v}★`, 'Avg Rating']} />
                 <Area type="monotone" dataKey="avg" stroke="#9A6B00" strokeWidth={2.5} fill="url(#goldGrad)" dot={{ r: 3, fill: '#9A6B00', strokeWidth: 0 }} />
               </AreaChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer></div>
           </div>
 
           <div className="trends-overview-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
@@ -111,7 +111,7 @@ export default function Trends() {
                 <div className="text-title">Monthly Review Volume</div>
                 <div style={{ fontSize: 11, color: 'var(--color-text-3)' }}>All locations combined</div>
               </div>
-              <ResponsiveContainer width="100%" height={180}>
+              <div className="chart-sm"><ResponsiveContainer width="100%" height="100%">
                 <BarChart data={portfolioTrend} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
                   <XAxis dataKey="month" tick={{ fontSize: 10, fill: 'var(--color-text-3)' }} tickLine={false} axisLine={false} />
@@ -119,7 +119,7 @@ export default function Trends() {
                   <Tooltip contentStyle={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 12 }} formatter={v => [v, 'Reviews']} />
                   <Bar dataKey="count" fill="#d97706" radius={[3, 3, 0, 0]} />
                 </BarChart>
-              </ResponsiveContainer>
+              </ResponsiveContainer></div>
             </div>
 
             {/* Sentiment donut */}
@@ -154,8 +154,8 @@ export default function Trends() {
 
       {tab === 'rankings' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          {/* Bar chart */}
-          <div className="card" style={{ padding: '22px 22px 16px' }}>
+          {/* Desktop: horizontal bar chart */}
+          <div className="card desktop-only" style={{ padding: '22px 22px 16px' }}>
             <div style={{ marginBottom: 16 }}>
               <div className="text-title">Rating by Location</div>
               <div style={{ fontSize: 11, color: 'var(--color-text-3)' }}>Current 30-day average</div>
@@ -175,8 +175,26 @@ export default function Trends() {
             </ResponsiveContainer>
           </div>
 
-          {/* Rankings table */}
-          <div className="card" style={{ overflow: 'hidden' }}>
+          {/* Mobile: visual rating bars */}
+          <div className="card mobile-ratings-viz" style={{ padding: '18px 18px 14px' }}>
+            <div className="text-title" style={{ marginBottom: 16 }}>Rating by Location</div>
+            {sorted.map((b, i) => (
+              <div key={b.id} style={{ marginBottom: i < sorted.length - 1 ? 14 : 0 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: i < 3 ? 'var(--color-accent)' : 'var(--color-text-3)', flexShrink: 0, minWidth: 22 }}>#{i + 1}</span>
+                  <span style={{ fontSize: 15 }}>{b.emoji}</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text-1)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{b.name.split(' ').slice(0, 2).join(' ')}</span>
+                  <span style={{ fontSize: 15, fontWeight: 800, color: b.rating >= 4.5 ? 'var(--color-success)' : b.rating >= 4.0 ? 'var(--color-accent)' : 'var(--color-danger)', flexShrink: 0 }}>{b.rating}★</span>
+                </div>
+                <div style={{ height: 3, background: 'var(--color-border)', borderRadius: 'var(--radius-full)', marginLeft: 30 }}>
+                  <div style={{ height: '100%', width: `${((b.rating - 3) / 2) * 100}%`, background: b.rating >= 4.5 ? '#166534' : b.rating >= 4.0 ? '#9A6B00' : '#991B1B', borderRadius: 'var(--radius-full)', transition: 'width 0.6s' }} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: rankings table */}
+          <div className="card desktop-only" style={{ overflow: 'hidden' }}>
             <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <table className="data-table" style={{ minWidth: 480 }}>
               <thead>
@@ -221,6 +239,39 @@ export default function Trends() {
               </tbody>
             </table>
             </div>
+          </div>
+
+          {/* Mobile: ranking cards */}
+          <div className="mobile-ranking-cards">
+            {sorted.map((b, i) => (
+              <div key={b.id} className="card" style={{ padding: '16px 18px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <span style={{ fontSize: 18, fontWeight: 900, color: i < 3 ? 'var(--color-accent)' : 'var(--color-text-3)', width: 28, flexShrink: 0, textAlign: 'center' }}>#{i + 1}</span>
+                  <span style={{ fontSize: 22, flexShrink: 0 }}>{b.emoji}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--color-text-1)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{b.name}</div>
+                    <div style={{ fontSize: 11, color: 'var(--color-text-3)', marginTop: 2 }}>{b.category}</div>
+                  </div>
+                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                    <div style={{ fontSize: 22, fontWeight: 800, lineHeight: 1, color: b.rating >= 4.5 ? 'var(--color-success)' : b.rating >= 4.0 ? 'var(--color-accent)' : 'var(--color-danger)' }}>{b.rating}★</div>
+                    <div style={{ fontSize: 12, fontWeight: 700, marginTop: 3, color: b.ratingDelta >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }}>
+                      {b.ratingDelta >= 0 ? '+' : ''}{b.ratingDelta.toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', marginTop: 12, paddingTop: 12, borderTop: '1px solid var(--color-border)' }}>
+                  <div style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--color-text-1)' }}>{b.monthlyReviews}</div>
+                    <div style={{ fontSize: 10, color: 'var(--color-text-3)', textTransform: 'uppercase', letterSpacing: '0.06em', marginTop: 2 }}>Monthly</div>
+                  </div>
+                  <div style={{ width: 1, background: 'var(--color-border)' }} />
+                  <div style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: b.responseRate >= 80 ? 'var(--color-success)' : 'var(--color-warning)' }}>{b.responseRate}%</div>
+                    <div style={{ fontSize: 10, color: 'var(--color-text-3)', textTransform: 'uppercase', letterSpacing: '0.06em', marginTop: 2 }}>Response</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

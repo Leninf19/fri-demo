@@ -50,9 +50,9 @@ export default function Overview() {
       </div>
 
       {/* KPI Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14, marginBottom: 24 }}>
+      <div className="kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14, marginBottom: 24 }}>
         {/* Health Score */}
-        <div className="card" style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div className="card kpi-health" style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', gap: 16 }}>
           <HealthGauge score={biz.healthScore} grade={biz.healthGrade} size={72} />
           <div>
             <div className="text-label" style={{ color: 'var(--color-text-3)', marginBottom: 3 }}>Health Score</div>
@@ -109,7 +109,7 @@ export default function Overview() {
             </div>
             <div className="badge badge-accent">{biz.emoji} {biz.name.split(' ').slice(0, 2).join(' ')}</div>
           </div>
-          <ResponsiveContainer width="100%" height={180}>
+          <div className="chart-sm"><ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
               <XAxis dataKey="month" tick={{ fontSize: 10, fill: 'var(--color-text-3)' }} tickLine={false} axisLine={false} />
@@ -121,7 +121,7 @@ export default function Overview() {
               />
               <Line type="monotone" dataKey="avg" stroke="#9A6B00" strokeWidth={2.5} dot={{ r: 3, fill: '#9A6B00', strokeWidth: 0 }} activeDot={{ r: 5 }} />
             </LineChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer></div>
         </div>
 
         {/* AI Executive Summary */}
@@ -186,7 +186,7 @@ export default function Overview() {
         {/* Location Spotlight */}
         <div className="card" style={{ padding: '20px' }}>
           <div className="text-title" style={{ color: 'var(--color-text-1)', marginBottom: 14 }}>Location Spotlight</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+          <div className="spotlight-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             {spotlightBizzes.map(b => (
               <div key={b.id} className="card card-hover" style={{ padding: '14px', border: '1px solid var(--color-border)' }}>
                 <div style={{ fontSize: 20, marginBottom: 6 }}>{b.emoji}</div>

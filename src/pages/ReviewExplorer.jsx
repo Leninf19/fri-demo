@@ -139,7 +139,7 @@ export default function ReviewExplorer() {
       </div>
 
       {/* Filter bar */}
-      <div className="card" style={{ padding: '14px 18px', marginBottom: 18, display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center' }}>
+      <div className="card fri-filter-bar" style={{ padding: '14px 18px', marginBottom: 18, display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center' }}>
         <input
           type="search"
           placeholder="Search reviews or reviewer names..."
@@ -177,7 +177,7 @@ export default function ReviewExplorer() {
           <input type="checkbox" checked={needsReply} onChange={e => setNeedsReply(e.target.checked)} />
           Needs Reply
         </label>
-        <div style={{ marginLeft: 'auto', fontSize: 12, color: 'var(--color-text-3)', fontWeight: 600 }}>
+        <div className="fri-filter-count" style={{ marginLeft: 'auto', fontSize: 12, color: 'var(--color-text-3)', fontWeight: 600 }}>
           Showing {Math.min(visible, filtered.length)} of {filtered.length} reviews
         </div>
       </div>

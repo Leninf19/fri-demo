@@ -71,7 +71,7 @@ export default function CompetitorIntel() {
             <div className="text-title">Head-to-Head Comparison</div>
             <div style={{ fontSize: 11, color: 'var(--color-text-3)' }}>Gold = your location</div>
           </div>
-          <ResponsiveContainer width="100%" height={220}>
+          <div className="chart-sm"><ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} margin={{ top: 4, right: 4, bottom: 20, left: -20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
               <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'var(--color-text-3)' }} tickLine={false} axisLine={false} />
@@ -83,7 +83,7 @@ export default function CompetitorIntel() {
                 ))}
               </Bar>
             </BarChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer></div>
         </div>
 
         {/* AI summary */}
@@ -101,8 +101,8 @@ export default function CompetitorIntel() {
         </div>
       </div>
 
-      {/* Competitor table */}
-      <div className="card" style={{ overflow: 'hidden', marginBottom: 20 }}>
+      {/* Desktop: competitor table */}
+      <div className="card desktop-only" style={{ overflow: 'hidden', marginBottom: 20 }}>
         <div style={{ padding: '18px 20px 12px' }}>
           <div className="text-title">Nearby Competitors</div>
         </div>
@@ -142,6 +142,32 @@ export default function CompetitorIntel() {
           </tbody>
         </table>
         </div>
+      </div>
+
+      {/* Mobile: competitor cards */}
+      <div className="mobile-competitor-cards">
+        {biz.competitors.map((c, i) => {
+          const diff = (c.rating - biz.rating).toFixed(1)
+          return (
+            <div key={i} className="card" style={{ padding: '15px 18px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--color-text-1)' }}>{c.name}</div>
+                  <div style={{ fontSize: 11, color: 'var(--color-text-3)', marginTop: 2 }}>{c.distance} · {c.reviews.toLocaleString()} reviews</div>
+                </div>
+                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                  <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--color-text-1)', lineHeight: 1 }}>{c.rating}★</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, marginTop: 3, color: parseFloat(diff) > 0 ? 'var(--color-danger)' : 'var(--color-success)' }}>
+                    {parseFloat(diff) > 0 ? '+' : ''}{diff} vs you
+                  </div>
+                </div>
+              </div>
+              <div style={{ marginTop: 10 }}>
+                <StarRating stars={Math.round(c.rating)} size={12} />
+              </div>
+            </div>
+          )
+        })}
       </div>
 
       {/* Opportunities */}

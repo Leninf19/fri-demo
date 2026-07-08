@@ -216,12 +216,12 @@ export default function AIAdvisor() {
           {active && answer && (
             <motion.div key={active} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
               style={{ borderTop: '1px solid rgba(154,107,0,0.2)', paddingTop: 24 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+              <div className="fri-advisor-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
                   <div className="ai-label" style={{ marginBottom: 4 }}>✦ Analysis Complete</div>
                   <div style={{ fontSize: 15, fontWeight: 800, color: 'white' }}>{answer.title}</div>
                 </div>
-                <div style={{ display: 'flex', gap: 8 }}>
+                <div className="fri-advisor-btns" style={{ display: 'flex', gap: 8 }}>
                   <button
                     onClick={handleCopy}
                     style={{
