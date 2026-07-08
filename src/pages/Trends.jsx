@@ -104,7 +104,7 @@ export default function Trends() {
             </ResponsiveContainer>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+          <div className="trends-overview-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
             {/* Monthly volume */}
             <div className="card" style={{ padding: '22px 22px 16px' }}>
               <div style={{ marginBottom: 16 }}>
@@ -177,7 +177,8 @@ export default function Trends() {
 
           {/* Rankings table */}
           <div className="card" style={{ overflow: 'hidden' }}>
-            <table className="data-table">
+            <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+            <table className="data-table" style={{ minWidth: 480 }}>
               <thead>
                 <tr>
                   <th>Rank</th>
@@ -219,6 +220,7 @@ export default function Trends() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       )}

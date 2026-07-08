@@ -50,7 +50,7 @@ export default function CompetitorIntel() {
       </div>
 
       {/* Headline metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>
+      <div className="competitor-kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>
         {[
           { label: 'Your Rating', value: `${biz.rating}★`, sub: biz.name, color: 'var(--color-accent)' },
           { label: 'Category Avg', value: `${avgCompRating.toFixed(1)}★`, sub: 'Competitor average', color: 'var(--color-text-3)' },
@@ -64,7 +64,7 @@ export default function CompetitorIntel() {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 18, marginBottom: 20 }}>
+      <div className="competitor-main-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 18, marginBottom: 20 }}>
         {/* Bar chart */}
         <div className="card" style={{ padding: '22px 22px 16px' }}>
           <div style={{ marginBottom: 16 }}>
@@ -106,7 +106,8 @@ export default function CompetitorIntel() {
         <div style={{ padding: '18px 20px 12px' }}>
           <div className="text-title">Nearby Competitors</div>
         </div>
-        <table className="data-table">
+        <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+        <table className="data-table" style={{ minWidth: 380 }}>
           <thead>
             <tr>
               <th>Business</th>
@@ -140,6 +141,7 @@ export default function CompetitorIntel() {
             })}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Opportunities */}

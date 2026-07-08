@@ -99,7 +99,7 @@ export default function Overview() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: 18, marginBottom: 24 }}>
+      <div className="overview-chart-row" style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: 18, marginBottom: 24 }}>
         {/* Rating Trend Chart */}
         <div className="card" style={{ padding: '20px 20px 14px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
@@ -140,7 +140,7 @@ export default function Overview() {
       </div>
 
       {/* Priority Queue + Location Spotlight */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+      <div className="overview-bottom-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
         {/* Priority Queue */}
         <div className="card" style={{ padding: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>

@@ -43,18 +43,28 @@ export default function Layout({ children }) {
           height: 'var(--header-h)',
           background: 'var(--color-surface)',
           borderBottom: '1px solid var(--color-border)',
-          display: 'flex', alignItems: 'center', padding: '0 16px', gap: 14,
+          display: 'flex', alignItems: 'center', padding: '0 16px', gap: 12,
+          flexShrink: 0,
         }} className="mobile-topbar">
           <button
             onClick={() => setMobileOpen(true)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: 'var(--color-text-2)', fontSize: 20, display: 'flex', alignItems: 'center' }}
-            aria-label="Open menu"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: 'var(--color-text-2)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 6, flexShrink: 0 }}
+            aria-label="Open navigation menu"
           >
-            ☰
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+              <rect y="0" width="18" height="1.5" rx="1" fill="currentColor"/>
+              <rect y="6" width="12" height="1.5" rx="1" fill="currentColor"/>
+              <rect y="12" width="18" height="1.5" rx="1" fill="currentColor"/>
+            </svg>
           </button>
-          <div>
-            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-text-3)' }}>Future Marketing Studio</div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-text-1)' }}>Future Insights</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+            <div style={{ width: 26, height: 26, borderRadius: 6, background: 'linear-gradient(135deg,#2E72F8,#0E28A0)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ fontSize: 8, fontWeight: 900, color: '#fff', letterSpacing: '-0.5px' }}>FRI</span>
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-3)', lineHeight: 1 }}>Future Marketing Studio</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-text-1)', lineHeight: 1.3, letterSpacing: '-0.01em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Review Intelligence</div>
+            </div>
           </div>
         </div>
 
@@ -86,7 +96,7 @@ export default function Layout({ children }) {
         </div>
 
         {/* Content */}
-        <main style={{ flex: 1, padding: '24px 24px 40px', maxWidth: '100%', overflowX: 'hidden' }}>
+        <main style={{ flex: 1, maxWidth: '100%', overflowX: 'hidden' }} className="fri-main">
           {children}
         </main>
       </div>
@@ -95,7 +105,13 @@ export default function Layout({ children }) {
         @media (min-width: 1024px) {
           .lg-sidebar { display: flex !important; position: fixed; left: 0; top: 0; bottom: 0; z-index: 100; }
           .mobile-topbar { display: none !important; }
-          main { margin-left: var(--sidebar-w); }
+          .fri-main { margin-left: var(--sidebar-w); padding: 24px 28px 48px; }
+        }
+        @media (max-width: 1023px) {
+          .fri-main { padding: 20px 20px 40px; }
+        }
+        @media (max-width: 640px) {
+          .fri-main { padding: 16px 14px 32px; }
         }
       `}</style>
     </div>

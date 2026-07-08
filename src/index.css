@@ -183,3 +183,62 @@ textarea, input[type="text"], input[type="search"], select {
     animation: none;
   }
 }
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+/* Demo badge: shift below mobile topbar */
+@media (max-width: 1023px) {
+  .demo-banner {
+    top: calc(var(--header-h) + 8px) !important;
+    right: 12px !important;
+  }
+}
+
+/* Overview: collapse chart + AI card to single column */
+@media (max-width: 860px) {
+  .overview-chart-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Overview: collapse Priority Queue + Spotlight to single column */
+@media (max-width: 680px) {
+  .overview-bottom-row {
+    grid-template-columns: 1fr !important;
+  }
+  .trends-overview-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Welcome modal: tighter padding on small phones */
+@media (max-width: 480px) {
+  .fri-modal-card {
+    padding: 24px 20px 20px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+}
+
+/* ComplaintIntel: sidebar chart stacks below issue list on mobile */
+@media (max-width: 820px) {
+  .complaint-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* CompetitorIntel: KPI cards 3→2 col, main grid stacks */
+@media (max-width: 820px) {
+  .competitor-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 560px) {
+  .competitor-kpi-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 380px) {
+  .competitor-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

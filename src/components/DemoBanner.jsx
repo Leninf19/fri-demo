@@ -1,6 +1,6 @@
 export default function DemoBanner() {
   return (
-    <div style={{
+    <div className="demo-banner" style={{
       position: 'fixed',
       top: 12,
       right: 16,

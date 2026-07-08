@@ -17,6 +17,7 @@ export default function WelcomeModal({ open, onStartTour, onExplore }) {
           }}
         >
           <motion.div
+            className="fri-modal-card"
             initial={{ scale: 0.94, opacity: 0, y: 12 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.96, opacity: 0 }}
